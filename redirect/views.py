@@ -1,6 +1,8 @@
 from django.shortcuts import redirect
 
+from redirect.services import get_destination_url
 
-def go(request, pk):
-    print(pk)
-    return redirect("https://www.upwork.com/jobs/Scrape-website-government-forms_~01d0d731da643dcb2a?source=rss")
+
+def redirect_view(request, slug):
+    destination_url = get_destination_url(slug)
+    return redirect(destination_url)
